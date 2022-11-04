@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html
+    xmlns:th="http://www.thymeleaf.org"
+    xmlns="http://www.w3.org/1999/xhtml">
+
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <h1>Datos de Item</h1>    
+        <a th:href="@{/}">Regresar</a>
+        <hr/>
+        <form th:action="@{/item/guardar}"
+              method="post"
+              th:object="${item}">
+            
+            <input type="hidden" name="itemid" th:field="*{itemid}"/>
+            
+            <label for="nombre">Nombre</label>
+            <input type="text" name="nombre" th:field="*{nombre}"/>
+            <br/><!-- comment -->
+            
+            <label for="precio">Precio</label>
+            <input type="number" name="precio" th:field="*{precio}"/>
+            <br/><!-- comment -->
+            
+            <label for="cantidad">Cantidad</label>
+            <input type="number" name="cantidad" th:field="*{cantidad}"/>
+            <br/><!-- comment -->
+            
+            <label for="categoriaid">Categoria</label>
+            <select th:field="*{categoriaid}">
+                <option th:each="categoria: ${categorias}"
+                        th:value="${categoria.categoriaid}"
+                        th:text="${categoria.nombre}">
+                        
+                   
+                    
+               
+            </select>
+            <input type="number" name="categoriaid" th:field="*{categoria.categoriaid}"/>
+            <br/><!-- comment -->            
+            
+            <input type="submit" name="guardar" value="Guardar"/>
+
+        </form>
+
+    </body>
+</html>

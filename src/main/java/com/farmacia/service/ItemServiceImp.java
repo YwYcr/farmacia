@@ -36,7 +36,7 @@ public class ItemServiceImp implements ItemService {
     @Override
     @Transactional(readOnly=true)
     public Item getItem(Item item){
-        return itemDao.findById(item.getItemId()).orElse(null);
+        return itemDao.findById(item.getItemid()).orElse(null);
     }
 
     //si el item .id tiene valor se busca y se actualiza

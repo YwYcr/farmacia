@@ -39,7 +39,7 @@ public class CategoriaServiceImp implements CategoriaService {
     @Override
     @Transactional(readOnly=true)
     public Categoria getCategoria(Categoria categoria){
-        return categoriaDao.findById(categoria.getCategoriaId()).orElse(null);
+        return categoriaDao.findById(categoria.getCategoriaid()).orElse(null);
     }
 
     //si el categoria .id tiene valor se busca y se actualiza

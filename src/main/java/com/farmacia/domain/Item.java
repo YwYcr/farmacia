@@ -14,15 +14,15 @@ public class Item implements Serializable{
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="itemId")
-    private Long itemId;
+    @Column(name="itemid")
+    private Long itemid;
     
     private String nombre;   
     private Double precio;
     private int cantidad;
     
     
-    @JoinColumn(name="categoriaId", referencedColumnName="categoriaId")
+    @JoinColumn(name="categoriaid", referencedColumnName="categoriaid")
     @ManyToOne
     private Categoria categoria;
 

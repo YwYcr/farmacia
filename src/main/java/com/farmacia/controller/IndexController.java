@@ -12,17 +12,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 
 public class IndexController {
-    
-    @Autowired
-    private ItemService itemService;
 
-    @GetMapping("/")
-    public String inicio(Model model) {
-
-       var items = itemService.getItems();
-        model.addAttribute("items", items);
-
-        return "index";
-    }
 
 }

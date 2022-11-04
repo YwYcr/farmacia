@@ -25,8 +25,9 @@
                         <td>[[${item.nombre}]]</td>
                         <td style="text-align: right">[[${#numbers.formatDecimal(item.precio,3,2)}]]</td>
                         <td>[[${item.cantidad}]]</td>
-                        <td>[[${item.categoria}]]</td>
-                        <td><a th:href="@{/carrito/agregar/} + ${item.itemId}">Comprar</td>
+                        <td>[[${item.categoria.nombre}]]</td>
+                        <td><a th:href="@{item/modificar/} + ${item.itemid}">Modificar</td>
+                        <td><a th:href="@{/item/eliminar/} + ${item.itemid}">Eliminar</td>
                     </tr>
                 </tbody>
             </table>
