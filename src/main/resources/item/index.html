@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<html
+    xmlns:th="http://wwww.thymeleaf.org">
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+
+        <h2>Listado de Items</h2>
+        <a th:href="@{/item/nuevo}">Nuevo Item</a>
+        <div th:if="${items !=null and !items.empty}">
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>nombre</th>
+                        <th>precio</th>
+                        <th>cantidad</th>
+                        <th>categoria</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="item : ${items}">
+                        <td>[[${item.nombre}]]</td>
+                        <td style="text-align: right">[[${#numbers.formatDecimal(item.precio,3,2)}]]</td>
+                        <td>[[${item.cantidad}]]</td>
+                        <td>[[${item.categoria}]]</td>
+                        <td><a th:href="@{/carrito/agregar/} + ${item.itemId}">Comprar</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div th:if="${items ==null and items.empty}">
+            <H2>No se tienen items que mostrar!</h2>
+        </div>
+        
+    </body>
+</html>
