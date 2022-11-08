@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html
+    xmlns:th="http://www.thymeleaf.org"
+    xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Farmacia</title>
+        <meta charset="UTF-8"/>      
+    </head>
+    <body>
+
+        <header th:fragment="header" class="header">
+                  
+        
+
+        <nav class='nav'>
+            <a href="/" class='nav-link logo'>Farmacia</a>
+            <ul class='nav-menu'>
+                <li class='nav-menu-item'><a class='nav-link nav-menu-link' th:href="@{/item/lista}">
+                        Farmacia</a></li>
+                <li class='nav-menu-item'><a class='nav-link nav-menu-link' th:href="@{/articulo/listado}">
+                        Expediente Digital</a></li>
+                <li class='nav-menu-item'><a class='nav-link nav-menu-link' th:href="@{/categoria/listado}">
+                        Contactenos</a></li>
+                <li class="nav-menu-itemR"><input type="search" class="input input-wrapper" placeholder="Busqueda"></li>
+                <li class="nav-menu-itemR"><a class="nav-menu-linkR" href="carrito.html">Carrito</a></li> 
+                <li class="nav-menu-itemR"><a class="nav-menu-linkR" href="login.html">Iniciar Sesion</a></li> 
+            </ul>
+
+        </nav>
+
+</header>
+
+
+
+
+
+
+
+        <footer th:fragment="footer">
+            <p>&COPY; Derechos Reservados 2022</p>            
+        </footer>
+    </body>
+</html>

@@ -5,10 +5,11 @@
     xmlns="http://www.w3.org/1999/xhtml">
 
     <head>
-        <title>TODO supply a title</title>
+        <title>Farmacia</title>
         <meta charset="UTF-8">
     </head>
     <body>
+            <header th:replace="layout/plantilla :: header" class="header"/>
         <h1>Datos de Item</h1>    
         <a th:href="@{/}">Regresar</a>
         <hr/>
@@ -31,7 +32,7 @@
             <br/><!-- comment -->
             
             <label for="categoria">Categoria</label>
-            <select th:field="*{categoriaid}">
+            <select th:field="*{categoria.categoriaid}">
                 <option th:each="categoria: ${categorias}"
                         th:value="${categoria.categoriaid}"
                         th:text="${categoria.nombre}"/>

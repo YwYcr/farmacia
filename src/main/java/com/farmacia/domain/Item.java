@@ -16,22 +16,34 @@ public class Item implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="itemid")
     private Long itemid;
-    private Long categoriaid;
+    
     private String nombre;   
     private Double precio;
     private int cantidad;
     
-    
+    @JoinColumn(name="categoriaid", referencedColumnName="categoriaid")
+    @ManyToOne(fetch =FetchType.EAGER)
+    private Categoria categoria;
 
     public Item() {
     }
 
-    public Item(Long categoriaid, String nombre, Double precio, int cantidad) {
-        this.categoriaid = categoriaid;
+    public Item(String nombre, Double precio, int cantidad) {
         this.nombre = nombre;
         this.precio = precio;
         this.cantidad = cantidad;
     }
+    
+    
+
+    public Item(String nombre, Double precio, int cantidad, Categoria categoria) {
+        this.nombre = nombre;
+        this.precio = precio;
+        this.cantidad = cantidad;
+        this.categoria = categoria;
+    }
+
+  
 
  
 

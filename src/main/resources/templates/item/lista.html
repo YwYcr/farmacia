@@ -7,10 +7,9 @@
         <meta charset="UTF-8">
     </head>
     <body>
-
+            <header th:replace="layout/plantilla :: header" class="header"/>
         <h2>Listado de Items</h2>
         <a th:href="@{/item/nuevo}">Nuevo Item</a>
-        <div th:if="${items !=null and !items.empty}">
             <table border="1">
                 <thead>
                     <tr>
@@ -25,16 +24,12 @@
                         <td>[[${item.nombre}]]</td>
                         <td style="text-align: right">[[${#numbers.formatDecimal(item.precio,3,2)}]]</td>
                         <td>[[${item.cantidad}]]</td>
-                        <td>[[${item.categoria}]]</td>
+                        <td>[[${item.categoria.nombre}]]</td>
                         <td><a th:href="@{/item/modificar/} + ${item.itemid}">Modificar</td>
                         <td><a th:href="@{/item/eliminar/} + ${item.itemid}">Eliminar</td>
                     </tr>
                 </tbody>
             </table>
-        </div>
-        <div th:if="${items ==null and items.empty}">
-            <H2>No se tienen items que mostrar!</h2>
-        </div>
-        
+        </div>     
     </body>
 </html>
