@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<html
+    xmlns:th="http://wwww.thymeleaf.org">
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+            <header th:replace="layout/plantilla :: header" class="header"/>
+        <h2>Listado de Expedientes</h2>
+        <a th:href="@{/expediente/nuevo}">Nuevo Expediente</a>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>Numero de expediente</th>
+                        <th>Cedula</th>
+                        <th>Contacto</th>
+                        <th>Descripcion</th>
+                        <th>Fecha</th>
+                        <th>Paciente</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="expediente : ${expedientes}">
+                        <td>[[${expediente.expedienteid}]]</td>
+                        <td>[[${expediente.cedula}]]</td>
+                        <td>[[${expediente.contacto}]]</td>
+                        <td>[[${expediente.descripcion}]]</td>
+                        <td>[[${expediente.fecha}]]</td>
+                        <td>[[${expediente.user.nombre}]]</td>
+                        <td><a th:href="@{/expediente/modificar/} + ${expediente.expedienteid}">Modificar</td>
+                        <td><a th:href="@{/expediente/eliminar/} + ${expediente.expedienteid}">Eliminar</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>     
+    </body>
+</html>

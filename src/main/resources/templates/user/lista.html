@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html
+    xmlns:th="http://wwww.thymeleaf.org">
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+            <header th:replace="layout/plantilla :: header" class="header"/>
+        <h2>Listado de Users</h2>
+        <a th:href="@{/user/nuevo}">Nuevo User</a>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Apellidos</th>
+                        <th>Correo</th>
+                        <th>password</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="user : ${users}">
+                        <td>[[${user.nombre}]]</td>
+                        <td>[[${user.apellidos}]]</td>
+                        <td>[[${user.correo}]]</td>
+                        <td>[[${user.password}]]</td>
+                        <td><a th:href="@{/user/modificar/} + ${user.userid}">Modificar</td>
+                        <td><a th:href="@{/user/eliminar/} + ${user.userid}">Eliminar</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>     
+    </body>
+</html>

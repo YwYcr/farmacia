@@ -30,15 +30,38 @@ public class TemplateResolverConfiguration {
         templateResolver.setCheckExistence(true);
         return templateResolver;
     }
+        @Bean
+        public SpringResourceTemplateResolver TemplatesResolver_2(){
+        SpringResourceTemplateResolver templateResolver = new SpringResourceTemplateResolver();
+        templateResolver.setPrefix("templates/user/");
+        templateResolver.setSuffix(".html");
+        templateResolver.setTemplateMode(TemplateMode.HTML);
+        templateResolver.setCharacterEncoding("UTF-8");
+        templateResolver.setOrder(2);
+        templateResolver.setCheckExistence(true);
+        return templateResolver;
+    }
     
             @Bean
-    public SpringResourceTemplateResolver TemplatesResolver_2(){
+    public SpringResourceTemplateResolver TemplatesResolver_3(){
         SpringResourceTemplateResolver templateResolver = new SpringResourceTemplateResolver();
         templateResolver.setPrefix("templates/categoria/");
         templateResolver.setSuffix(".html");
         templateResolver.setTemplateMode(TemplateMode.HTML);
         templateResolver.setCharacterEncoding("UTF-8");
-        templateResolver.setOrder(2);
+        templateResolver.setOrder(3);
+        templateResolver.setCheckExistence(true);
+        return templateResolver;
+    }
+
+                @Bean
+    public SpringResourceTemplateResolver TemplatesResolver_4(){
+        SpringResourceTemplateResolver templateResolver = new SpringResourceTemplateResolver();
+        templateResolver.setPrefix("templates/expediente/");
+        templateResolver.setSuffix(".html");
+        templateResolver.setTemplateMode(TemplateMode.HTML);
+        templateResolver.setCharacterEncoding("UTF-8");
+        templateResolver.setOrder(4);
         templateResolver.setCheckExistence(true);
         return templateResolver;
     }

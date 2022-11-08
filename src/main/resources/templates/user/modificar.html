@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html
+    xmlns:th="http://www.thymeleaf.org"
+    xmlns="http://www.w3.org/1999/xhtml">
+
+    <head>
+        <title>Farmacia</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+            <header th:replace="layout/plantilla :: header" class="header"/>
+        <h1>Datos de User</h1>    
+        <a th:href="@{/}">Regresar</a>
+        <hr/>
+        <form th:action="@{/user/guardar}"
+              method="post"
+              th:object="${user}">
+            
+            <input type="hidden" name="userid" th:field="*{userid}"/>
+            
+            <label for="nombre">Nombre</label>
+            <input type="text" name="nombre" th:field="*{nombre}"/>
+            <br/><!-- comment -->
+            
+            <label for="apellidos">Apellidos</label>
+            <input type="text" name="apellidos" th:field="*{apellidos}"/>
+            <br/><!-- comment -->
+            
+            <label for="correo">Correo</label>
+            <input type="email" name="correo" th:field="*{correo}"/>
+            <br/><!-- comment -->
+            
+            <label for="password">Password</label>
+            <input type="password" name="password" th:field="*{password}"/>
+            <br/><!-- comment -->
+            <br/><!-- comment -->            
+            
+            <input type="submit" name="guardar" value="Guardar"/>
+
+        </form>
+
+    </body>
+</html>
