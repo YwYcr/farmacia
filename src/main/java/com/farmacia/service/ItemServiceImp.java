@@ -44,11 +44,7 @@ public class ItemServiceImp implements ItemService {
     @Override
     @Transactional
     public void save(Item item){
-        Categoria categoria = item.getCategoria();
-        categoria=categoriaDao.save(categoria);
-        item.setCategoria(categoria);
-        
-        itemDao.save(item);
+      itemDao.save(item);
     }
 
     //Elimina el registro

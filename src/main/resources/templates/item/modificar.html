@@ -30,17 +30,14 @@
             <input type="number" name="cantidad" th:field="*{cantidad}"/>
             <br/><!-- comment -->
             
-            <label for="categoriaid">Categoria</label>
+            <label for="categoria">Categoria</label>
             <select th:field="*{categoriaid}">
                 <option th:each="categoria: ${categorias}"
                         th:value="${categoria.categoriaid}"
-                        th:text="${categoria.nombre}">
+                        th:text="${categoria.nombre}"/>
                         
-                   
-                    
-               
+                
             </select>
-            <input type="number" name="categoriaid" th:field="*{categoria.categoriaid}"/>
             <br/><!-- comment -->            
             
             <input type="submit" name="guardar" value="Guardar"/>

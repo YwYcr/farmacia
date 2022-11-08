@@ -25,7 +25,7 @@ public class ItemController {
        var items = itemService.getItems();
         model.addAttribute("items", items);
 
-        return "/item/index";
+        return "/item/lista";
     }
     
    @GetMapping("/item/nuevo")
@@ -37,7 +37,7 @@ public class ItemController {
     @PostMapping("/item/guardar")
     public String guardarItem(Item item) {
         itemService.save(item);
-        return "redirect:/item/index";
+        return "redirect:/item/lista";
     }
 
     @GetMapping("/item/modificar/{itemid}")
@@ -53,7 +53,7 @@ public class ItemController {
         
         itemService.delete(item);
         
-        return "redirect:/item/index";
+        return "redirect:/item/lista";
     }
 
 }
