@@ -33,14 +33,13 @@
 
 </header>
 
-
-
-
-
-
-
         <footer th:fragment="footer">
-            <p>&COPY; Derechos Reservados 2022</p>            
+            <p>&COPY; Derechos Reservados 2022</p>  
+            <form method="POST" 
+                  th:action="@{/logout}" 
+                  style="display: inline">                    
+                  <a href="#" onclick="this.parentNode.submit();">Logout</a>
+            </form>
         </footer>
     </body>
 </html>
