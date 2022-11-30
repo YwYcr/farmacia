@@ -32,18 +32,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
     /*@Override
     protected void configure(HttpSecurity http) throws Exception{
         http.authorizeRequests()
-                .antMatchers("/articulo/nuevo",        "/articulo/guardar", 
-                             "/articulo/modificar/**", "/articulo/eliminar/**",
-                             "/categoria/nuevo",       "/categoria/guardar",
-                             "/categoria/modificar/**","/categoria/eliminar/**",
-                             "/cliente/nuevo",         "/cliente/guardar",  
-                             "/cliente/modificar/**",  "/cliente/eliminar/**",
-                             "/usuario/listado",  
-                             "/usuario/nuevo",         "/usuario/guardar",  
-                             "/usuario/modificar/**",  "/usuario/eliminar/**")
+                .antMatchers("/expediente/lista", "/expediente/modificar", 
+                             "/item/lista",       "/item/modificar",
+                             "/user/lista",       "/user/modificar"
+                             )
                     .hasRole("ADMIN")
-                .antMatchers("/articulo/listado", "/categoria/listado",
-                             "/cliente/listado")
+                .antMatchers("/expediente/lista", "/item/lista",
+                             "/user/lista")
                     .hasAnyRole("ADMIN","VENDEDOR")
                 .antMatchers("/")
                     .hasAnyRole("USER","VENDEDOR","ADMIN")
@@ -53,5 +48,4 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
                 .and()
                     .exceptionHandling().accessDeniedPage("/errores/403");
     } */
-    
 }
