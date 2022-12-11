@@ -65,5 +65,15 @@ public class TemplateResolverConfiguration {
         templateResolver.setCheckExistence(true);
         return templateResolver;
     }
+        public SpringResourceTemplateResolver TemplatesResolver_5(){
+        SpringResourceTemplateResolver templateResolver = new SpringResourceTemplateResolver();
+        templateResolver.setPrefix("templates/carrito/");
+        templateResolver.setSuffix(".html");
+        templateResolver.setTemplateMode(TemplateMode.HTML);
+        templateResolver.setCharacterEncoding("UTF-8");
+        templateResolver.setOrder(5);
+        templateResolver.setCheckExistence(true);
+        return templateResolver;
+    }
     
 }

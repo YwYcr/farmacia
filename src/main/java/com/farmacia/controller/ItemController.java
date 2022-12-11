@@ -25,7 +25,7 @@ public class ItemController {
       @Autowired
     private CategoriaService categoriaService;
 
-    @GetMapping({"/","/item/lista"})
+    @GetMapping("/item/lista")
     public String inicio(Model model) {
 
        var items = itemService.getItems();

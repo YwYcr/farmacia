@@ -24,6 +24,8 @@ public class Item implements Serializable{
     @JoinColumn(name="categoriaid", referencedColumnName="categoriaid")
     @ManyToOne(fetch =FetchType.EAGER)
     private Categoria categoria;
+    @Column(name="rutaimagen")
+    private String rutaimagen;
 
     public Item() {
     }

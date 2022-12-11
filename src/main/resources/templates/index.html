@@ -3,15 +3,27 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://wwww.thymeleaf.org" 
       xmlns:sec="http://thymeleaft.org/extras/spring-security">
-    <head>
-        <title>TODO supply a title</title>
+    <head th:replace="layout/plantilla :: head">
+        <title>Lista Items</title>
         <meta charset="UTF-8">
     </head>
     <body>
-
-        <h2>Listado de Items</h2>
-        <a th:href="@{/item/nuevo}">Nuevo Item</a>
-        <div th:if="${items !=null and !items.empty}">
+        <header th:replace="layout/plantilla :: header" class="header"/>
+        <section th:replace="carrito/fragmentosCarrito :: listadoItems"/>
+        
+        
+        <script>
+            function addCard(formulario){
+                var valor=formulario.elements[0].value;
+                var url="/carrito/agregar";
+                url = url + "/" + valor;
+                $("resultsBlock").load(url);
+            }
+        </script>
+        
+        <div sec:authorize="hasRole('ROLE_ADMIN')">
+            <h2>Listado de Items</h2>
+            <a th:href="@{/item/nuevo}">Nuevo Item</a>
             <table border="1">
                 <thead>
                     <tr>
@@ -27,14 +39,33 @@
                         <td style="text-align: right">[[${#numbers.formatDecimal(item.precio,3,2)}]]</td>
                         <td>[[${item.cantidad}]]</td>
                         <td>[[${item.categoria.nombre}]]</td>
-                        <td><a th:href="@{/carrito/agregar/} + ${item.itemid}">Comprar</td>
+                        <td><a th:href="@{/item/modificar/} + ${item.itemid}">Modificar</td>
+                        <td><a th:href="@{/item/eliminar/} + ${item.itemid}">Eliminar</td>
                     </tr>
                 </tbody>
             </table>
-        </div>
-        <div th:if="${items ==null and items.empty}">
-            <H2>No se tienen items que mostrar!</h2>
-        </div>
+        </div>  
         
-    </body>
+        
+        <div class="container">
+            <h2 th:text="#{plantilla.titulo}">Nuestra Farmacia</h2>            
+            <div class="row row-cols-3" th:if="${items != null and !items.empty}">
+                <div class="card" th:each="item : ${items}" >
+
+                    <div class="card-body">
+                        <h5 class="card-title">[[${item.nombre}]]</h5>
+                        
+                        <h6 class="card-subtitle mb-2 text-muted text-end">[[${new java.text.DecimalFormat('¢#,##0.00').format(item.precio)}]]</h6>
+                        <a class="card-link" th:href="@{/carrito/agregar/} + ${item.itemid}">[[#{item.comprar}]]</a>
+                        <p class="card-text">[[${item.cantidad}]]</p>                        
+                    </div>
+                </div>                
+            </div>
+            <div th:if="${articulos == null or articulos.empty}"  th:text="#{articulo.no_mostrar}">
+                No tenemos lista de articulos que mostrar...
+            </div>
+        </div>
+
+
+        <footer th:replace="layout/plantilla :: footer"/>
 </html>
