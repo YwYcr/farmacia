@@ -16,7 +16,7 @@
 
                     <div class="card-body">
                         <h5 class="card-title">[[${item.nombre}]]</h5>
-
+                        <img th:src="@{${item.rutaimagen}}" width="120"/>
                         <h6 class="card-subtitle mb-2 text-muted text-end">[[${new java.text.DecimalFormat('¢#,##0.00').format(item.precio)}]]</h6>
                         <a class="card-link" th:href="@{/carrito/agregar/} + ${item.itemid}">[[#{item.comprar}]]</a>
                         <p class="card-text">[[${item.cantidad}]]</p>                        
@@ -45,7 +45,7 @@
                     <tr th:each="item : ${items}">
                         <td>[[${item.nombre}]]</td>
                         <td style="text-align: right">[[${#numbers.formatDecimal(item.precio,3,2)}]]</td>
-                        <td>[[${item.cantidad}]]</td>
+                        <td>[[${item.cantidadtabla}]]</td>
                         <td>[[${item.categoria.nombre}]]</td>
                         <td><a th:href="@{/item/modificar/} + ${item.itemid}">Modificar</td>
                         <td><a th:href="@{/item/eliminar/} + ${item.itemid}">Eliminar</td>

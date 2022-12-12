@@ -1,17 +1,15 @@
 package com.farmacia.service;
 
 
-import com.farmacia.dao.CategoriaDao;
-import com.farmacia.dao.ItemDao;
+
 import com.farmacia.domain.Carrito;
-import com.farmacia.domain.Categoria;
-import com.farmacia.domain.Item;
+
 import static com.farmacia.service.CarritoService.listaCarrito;
 import java.util.List;
 import java.util.Objects;
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
+
 
 @Service
 
@@ -37,8 +35,8 @@ public class CarritoServiceImp implements CarritoService {
         boolean existe = false;
         for (Carrito c : listaCarrito){
             if (Objects.equals(c.getItemid(), carrito.getItemid())){
-                if(c.getCantidad() < carrito.getCantidad()){
-                    c.setCant(c.getCantidad()+1);
+                if(c.getCantidad()< carrito.getCantidadtabla()){
+                    c.setCantidad(c.getCantidad()+1);
                 }
                 existe=true;
                 break;

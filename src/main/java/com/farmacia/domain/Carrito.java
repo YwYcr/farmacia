@@ -5,7 +5,7 @@ import lombok.Data;
 
 @Data
 public class Carrito extends Item{
-    private int cant;
+    private int cantidad;
 
     public Carrito() {
     }
@@ -15,8 +15,8 @@ public class Carrito extends Item{
         super.setNombre(item.getNombre());
         super.setCategoria(item.getCategoria());
         super.setPrecio(item.getPrecio());
-        super.setCantidad(item.getCantidad());
-        this.cant = 0;
+        super.setCantidadtabla(item.getCantidadtabla());
+        this.cantidad = 0;
     }
 
     

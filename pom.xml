@@ -81,7 +81,11 @@
             <artifactId>webjars-locator</artifactId>
             <version>0.46</version>
         </dependency>
-        
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>popper.js</artifactId>
+            <version>1.12.9-1</version>
+        </dependency>
         <dependency>
             <groupId>javax.validation</groupId>
             <artifactId>validation-api</artifactId>        

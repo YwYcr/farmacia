@@ -9,18 +9,18 @@
     </head>
     <body>
         <header th:replace="layout/plantilla :: header" class="header"/>
-        <section th:replace="carrito/fragmentosCarrito :: listadoItems"/>
-        
-        
+        <section th:replace="carrito/fragmentosCarrito :: listaItems"/>
+
+
         <script>
-            function addCard(formulario){
-                var valor=formulario.elements[0].value;
-                var url="/carrito/agregar";
+            function addCard(formulario) {
+                var valor = formulario.elements[0].value;
+                var url = "/carrito/agregar";
                 url = url + "/" + valor;
                 $("resultsBlock").load(url);
             }
         </script>
-        
+
         <div sec:authorize="hasRole('ROLE_ADMIN')">
             <h2>Listado de Items</h2>
             <a th:href="@{/item/nuevo}">Nuevo Item</a>
@@ -37,7 +37,7 @@
                     <tr th:each="item : ${items}">
                         <td>[[${item.nombre}]]</td>
                         <td style="text-align: right">[[${#numbers.formatDecimal(item.precio,3,2)}]]</td>
-                        <td>[[${item.cantidad}]]</td>
+                        <td>[[${item.cantidadtabla}]]</td>
                         <td>[[${item.categoria.nombre}]]</td>
                         <td><a th:href="@{/item/modificar/} + ${item.itemid}">Modificar</td>
                         <td><a th:href="@{/item/eliminar/} + ${item.itemid}">Eliminar</td>
@@ -45,26 +45,8 @@
                 </tbody>
             </table>
         </div>  
-        
-        
-        <div class="container">
-            <h2 th:text="#{plantilla.titulo}">Nuestra Farmacia</h2>            
-            <div class="row row-cols-3" th:if="${items != null and !items.empty}">
-                <div class="card" th:each="item : ${items}" >
 
-                    <div class="card-body">
-                        <h5 class="card-title">[[${item.nombre}]]</h5>
-                        
-                        <h6 class="card-subtitle mb-2 text-muted text-end">[[${new java.text.DecimalFormat('¢#,##0.00').format(item.precio)}]]</h6>
-                        <a class="card-link" th:href="@{/carrito/agregar/} + ${item.itemid}">[[#{item.comprar}]]</a>
-                        <p class="card-text">[[${item.cantidad}]]</p>                        
-                    </div>
-                </div>                
-            </div>
-            <div th:if="${articulos == null or articulos.empty}"  th:text="#{articulo.no_mostrar}">
-                No tenemos lista de articulos que mostrar...
-            </div>
-        </div>
+        
 
 
         <footer th:replace="layout/plantilla :: footer"/>

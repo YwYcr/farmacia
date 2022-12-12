@@ -39,7 +39,7 @@ public class CarritoController {
     }
     
     @GetMapping("/carrito/agregar/{itemid}")
-    public ModelAndView agregarItem (Model model, Carrito carrito){
+    public ModelAndView agregarCarrito (Model model, Carrito carrito){
         Carrito carrito2 = carritoService.getCarrito(carrito);
         if(carrito2==null){
             Item item = itemService.getItem(carrito);

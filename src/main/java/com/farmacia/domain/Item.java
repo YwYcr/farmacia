@@ -19,7 +19,7 @@ public class Item implements Serializable{
     
     private String nombre;   
     private Double precio;
-    private int cantidad;
+    private int cantidadtabla;
     
     @JoinColumn(name="categoriaid", referencedColumnName="categoriaid")
     @ManyToOne(fetch =FetchType.EAGER)
@@ -30,18 +30,18 @@ public class Item implements Serializable{
     public Item() {
     }
 
-    public Item(String nombre, Double precio, int cantidad) {
+    public Item(String nombre, Double precio, int cantidadtabla) {
         this.nombre = nombre;
         this.precio = precio;
-        this.cantidad = cantidad;
+        this.cantidadtabla = cantidadtabla;
     }
     
     
 
-    public Item(String nombre, Double precio, int cantidad, Categoria categoria) {
+    public Item(String nombre, Double precio, int cantidadtabla, Categoria categoria) {
         this.nombre = nombre;
         this.precio = precio;
-        this.cantidad = cantidad;
+        this.cantidadtabla = cantidadtabla;
         this.categoria = categoria;
     }
 
