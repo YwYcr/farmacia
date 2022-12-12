@@ -31,7 +31,7 @@
 
                         <form>
                             <input type="hidden" name="texto" th:value="${item.itemid}"/>
-                            <input type="hidden" name="texto" th:value="${item.cantidadtabla}"/>
+                            <input type="hidden" name="texto" th:value="${item.cantidadtabla}"/>                           
                             <button class="btn btn-ligth"
                                     id="addCar"
                                     name="addCar"
@@ -62,7 +62,7 @@
 
 
 
-    <section th:fragment="listadoCarrito" id="items">  
+    <section th:fragment="listadoCarrito" id="carritos">  
         <div class="container">
             <div class="row">
                 <div class="col-md-9">
@@ -70,35 +70,35 @@
                         <div class="card-header">
                             <h4>[[#{plantilla.titulo}]]</h4>
                         </div>
-                        <div th:if="${items != null and !items.empty}">
+                        <div th:if="${carritos != null and !carritos.empty}">
                             <table class="table table-stryped">
                                 <thead class="thead-dark">
                                     <tr>
                                         <th>#</th>
-                                        <th> [[#item.nombre}]]</th>
-                                        <th> [[#item.precio}]] </th>
-                                        <th> [[#carrito.cantidad}]]</th>
-                                        <th> [[#carrito.total}]]</th>
+                                        <th> [[#{item.nombre}]]</th>
+                                        <th> [[#{item.precio}]] </th>
+                                        <th> [[#{carrito.cantidad}]]</th>
+                                        <th> [[#{carrito.total}]]</th>
                                         <th></th>
                                         <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr th:each="item, contador : ${items}">
+                                    <tr th:each="carrito, contador : ${carritos}">
                                         <td>[[${contador.count}]]</td>
-                                        <td>[[${item.nombre}]]</td>
+                                        <td>[[${carrito.nombre}]]</td>
                                         
-                                        <td class="text-end">[[${new java.text.DecimalFormat('$#,##0.00').format(item.precio)}]]</td>
-                                        <td class="text-center">[[${new java.text.DecimalFormat('# ###.##0').format(item.cantidad)}]]</td>
-                                        <td class="text-center">[[${new java.text.DecimalFormat('$# ###,##0.00').format(item.cantidad*item.precio)}]]</td>
+                                        <td class="text-end">[[${new java.text.DecimalFormat('$#,##0.00').format(carrito.precio)}]]</td>
+                                        <td class="text-center">[[${new java.text.DecimalFormat('# ###,##0').format(carrito.cantidad)}]]</td>
+                                        <td class="text-center">[[${new java.text.DecimalFormat('$# ###,##0.00').format(carrito.cantidad*carrito.precio)}]]</td>
                                         <td>
-                                            <a th:href="@{/carrito/eliminar/}+${item.itemid}"
+                                            <a th:href="@{/carrito/eliminar/}+${carrito.itemid}"
                                                class="btn btn-danger">
                                                 <i class="fas fa-trash"></i> [[#{accion.eliminar}]]
                                             </a>
                                         </td>
                                         <td>
-                                            <a th:href="@{/carrito/modificar/}+${item.itemid}"
+                                            <a th:href="@{/carrito/modificar/}+${carrito.itemid}"
                                                class="btn btn-success">
                                                 <i class="fas fa-pencil"></i> [[#{accion.actualizar}]]
                                             </a>
@@ -107,7 +107,7 @@
                                 </tbody>
                             </table>
                         </div>
-                        <div class="text-center p-2" th:if="${items == null or items.empty}">
+                        <div class="text-center p-2" th:if="${carritos == null or carritos.empty}">
                             <span th:text="#{carrito.no_mostrar}">Lista vacía</span>
                         </div>
                     </div>
