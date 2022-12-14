@@ -9,14 +9,14 @@
     <body>
             <header th:replace="layout/plantilla :: header" class="header"/>
         <h2>Listado de Users</h2>
-        <a th:href="@{/user/nuevo}">Nuevo User</a>
+        <a th:href="@{/user/nuevo}">Agregar nuevo usuario</a>
             <table border="1">
                 <thead>
                     <tr>
                         <th>Nombre</th>
                         <th>Apellidos</th>
                         <th>Correo</th>
-                        <th>password</th>
+                        <th>Password</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -29,7 +29,6 @@
                         <td><a th:href="@{/user/eliminar/} + ${user.userid}">Eliminar</td>
                     </tr>
                 </tbody>
-            </table>
-        </div>     
+            </table>  
     </body>
 </html>

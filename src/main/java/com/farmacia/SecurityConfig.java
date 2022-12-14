@@ -1,7 +1,7 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+*/
 package com.farmacia;
 
 import org.springframework.context.annotation.Configuration;
@@ -16,7 +16,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception{
         auth.inMemoryAuthentication()
-                .withUser("Pablo")
+                .withUser("pablo")
                     .password("{noop}123")
                     .roles("ADMIN","VENDEDOR","USER")
                 .and()
@@ -29,7 +29,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
                     .roles("USER");
     }
     
-   /* @Override
+   /*@Override
     protected void configure(HttpSecurity http) throws Exception{
         http.authorizeRequests()
                 .antMatchers("/expediente/lista", "/expediente/modificar", 
@@ -44,7 +44,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
                     .hasAnyRole("USER","VENDEDOR","ADMIN")
                 .and()
                     .formLogin()
-                    .loginPage("templates/login")
+                    .loginPage("/login")
                 .and()
                     .exceptionHandling().accessDeniedPage("/errores/403");
     }*/
