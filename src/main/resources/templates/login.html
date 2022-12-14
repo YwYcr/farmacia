@@ -15,7 +15,7 @@
                 margin-top: -125px;
                 width: 400px; 
                 height: 250px;
-                background-color: grey;
+                background-color: green;
                 position: fixed;                
                 overflow: auto;
             }
@@ -23,6 +23,7 @@
     </head>
     <body>
         <div class="contenido">
+            <a th:href="@{/}">[[#{plantilla.volver}]]</a>
             <h2 th:text="#{login.login}">Login</h2>            
             <form method="POST" th:action="@{/login}">
                 <label for="username" th:text="#{login.username}">Username:</label><br/>
@@ -33,6 +34,7 @@
                 <br/><br/>
                 <button type="submit" value="Login" th:text="#{login.login}">Login</button>
             </form>
+            
         </div>        
     </body>
 </html>
