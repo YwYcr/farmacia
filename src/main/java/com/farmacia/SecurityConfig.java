@@ -13,6 +13,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter{
+    
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception{
         auth.inMemoryAuthentication()
@@ -29,7 +30,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
                     .roles("USER");
     }
     
-   /*@Override
+   @Override
     protected void configure(HttpSecurity http) throws Exception{
         http.authorizeRequests()
                 .antMatchers("/expediente/lista", "/expediente/modificar", 
@@ -47,5 +48,5 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
                     .loginPage("/login")
                 .and()
                     .exceptionHandling().accessDeniedPage("/errores/403");
-    }*/
+    }
 }
